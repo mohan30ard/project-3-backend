@@ -42,7 +42,7 @@ pipeline {
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  9849:9848 anvbhaskar/docker_jenkins_springboot:${BUILD_NUMBER}'
+                sh 'docker run -itd -p  9849:9848 9963286630/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
 
