@@ -19,29 +19,28 @@ pipeline {
         stage('Build Docker image'){
             steps {
               
-                sh 'docker build -t  anvbhaskar/docker_jenkins_springboot:${BUILD_NUMBER} .'
+                sh 'docker build -t  9963286630/docker_jenkins_springboot:${BUILD_NUMBER} .'
             }
         }
 
         stage('Docker Login'){
             
             steps {
-                 withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
-                    sh "docker login -u anvbhaskar -p ${Dockerpwd}"
-                }
+                    sh "docker login -u 9963286630 -p Mohan.1999*"
+                
             }                
         }
 
         stage('Docker Push'){
             steps {
-                sh 'docker push anvbhaskar/docker_jenkins_springboot:${BUILD_NUMBER}'
+                sh 'docker push 9963286630/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
         
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  8081:8080 anvbhaskar/docker_jenkins_springboot:${BUILD_NUMBER}'
+                sh 'docker run -itd -p  9849:9848 anvbhaskar/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
 
