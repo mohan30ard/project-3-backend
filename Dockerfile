@@ -1,7 +1,7 @@
 FROM openjdk:8
 
-ADD target/javaexpress-springboot-docker.jar javaexpress-springboot-docker.jar
+ADD target/revature-railways-backend.jar revature-railways-backend.jar
 
 EXPOSE 9848
 
-ENTRYPOINT ["java","-jar","javaexpress-springboot-docker.jar"]
+ENTRYPOINT ["java","-jar","revature-railways-backend.jar"]

@@ -19,7 +19,7 @@ pipeline {
         stage('Build Docker image'){
             steps {
               
-                sh 'docker build -t  9963286630/docker_jenkins_springboot:${BUILD_NUMBER} .'
+                sh 'docker build -t  9963286630/revature-railways-backend:${BUILD_NUMBER} .'
             }
         }
 
@@ -35,14 +35,14 @@ pipeline {
 
         stage('Docker Push'){
             steps {
-                sh 'docker push 9963286630/docker_jenkins_springboot:${BUILD_NUMBER}'
+                sh 'docker push 9963286630/revature-railways-backend:${BUILD_NUMBER}'
             }
         }
         
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  9849:9848 9963286630/docker_jenkins_springboot:${BUILD_NUMBER}'
+                sh 'docker run -itd -p  9849:9848 9963286630/revature-railways-backend:${BUILD_NUMBER}'
             }
         }
 
