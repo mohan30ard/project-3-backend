@@ -19,7 +19,7 @@ pipeline {
         stage('Build Docker image'){
             steps {
               
-                sh 'docker build -t  9963286630/revature-railways-backend:${BUILD_NUMBER} .'
+                sh 'docker build -t  9963286630/revature-railways-backend'
             }
         }
 
@@ -35,14 +35,14 @@ pipeline {
 
         stage('Docker Push'){
             steps {
-                sh 'docker push 9963286630/revature-railways-backend:${BUILD_NUMBER}'
+                sh 'docker push 9963286630/revature-railways-backend'
             }
         }
         
         stage('Docker deploy'){
             steps {
-               sh 'docker rm -f 9963286630/revature-railways-backend:${BUILD_NUMBER}-1'
-                sh 'docker run -itd -p  9850:9848 9963286630/revature-railways-backend:${BUILD_NUMBER}'
+               sh 'docker rm -f 9963286630/revature-railways-backend'
+                sh 'docker run -itd -p  9850:9848 9963286630/revature-railways-backend'
             }
         }
 
