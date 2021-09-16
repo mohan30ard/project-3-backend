@@ -19,7 +19,7 @@ pipeline {
         stage('Build Docker image'){
             steps {
               
-                sh 'docker build -t  9963286630/revature-railways-backend'
+                sh 'docker build -t  9963286630/revature-railways-backend .'
             }
         }
 
