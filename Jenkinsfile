@@ -39,21 +39,13 @@ pipeline {
             }
         }
         
-        stage('docker stop container') {
-         steps {
-
-           sh 'docker stop $(docker ps -q)'
-           sh 'docker rm $(docker ps -a -q)'
-           sh 'docker rmi $(docker images -q -f dangling=true)'	
-      
-         }
-       }
+        
         stage('Docker deploy'){
             steps {
 	
 	
-              
-                sh 'docker run -itd -p  9090:9848 9963286630/revature-railways-backend'
+              sh 'docker container rm -f 9963286630/revature-railways-backend'
+                sh 'docker run --name 9963286630/revature-railways-backend -itd -p  9090:9848 9963286630/revature-railways-backend'
             }
         }
 
