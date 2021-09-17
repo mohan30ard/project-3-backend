@@ -41,8 +41,11 @@ pipeline {
         
         stage('docker stop container') {
          steps {
-            sh 'docker ps -f name=9963286630/revature-railways-backend -q | xargs --no-run-if-empty docker container stop'
-            sh 'docker container ls -a -fname=9963286630/revature-railways-backend -q | xargs -r docker container rm'
+
+           sh 'docker stop $(docker ps -q)'
+           sh 'docker rm $(docker ps -a -q)'
+           sh 'docker rmi $(docker images -q -f dangling=true)'	
+      
          }
        }
         stage('Docker deploy'){
