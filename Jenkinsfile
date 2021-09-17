@@ -18,7 +18,6 @@ pipeline {
 
         stage('Build Docker image'){
             steps {
-	sh 'docker stop 9963286630/revature-railways-backend'
               
                 sh 'docker build -t  9963286630/revature-railways-backend .'
             }
@@ -42,7 +41,8 @@ pipeline {
         
         stage('Docker deploy'){
             steps {
-               sh 'docker rm -f 9963286630/revature-railways-backend'
+	sh 'docker container rm -f 9963286630/revature-railways-backend'
+              
                 sh 'docker run -itd -p  9090:9848 9963286630/revature-railways-backend'
             }
         }
