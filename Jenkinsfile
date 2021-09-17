@@ -44,8 +44,8 @@ pipeline {
             steps {
 	
 	
-              sh 'docker container rm -f 9963286630/revature-railways-backend'
-                sh 'docker run --name 9963286630/revature-railways-backend -itd -p  9090:9848 9963286630/revature-railways-backend'
+              sh 'docker container rm -f revature-railways-backend'
+                sh 'docker run --name revature-railways-backend -itd -p  9090:9848 9963286630/revature-railways-backend'
             }
         }
 
