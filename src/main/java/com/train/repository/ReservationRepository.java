@@ -17,5 +17,14 @@ public interface ReservationRepository extends JpaRepository<ReservationForm, In
 	
 	@Query(value = "select count(coach_id) from reservation where train_details_tid=:id and coach_type=:coachtype", nativeQuery = true)
 	  public int getCoachNumber(@Param("id") int trainid,@Param("coachtype") String coachtype);
+	
+	@Query(value = "select * from reservation where train_details_tid=:id and coach_type=:coachtype and status=1", nativeQuery = true)
+	public List<ReservationForm> getCancelTicket(@Param("id") int trainid,@Param("coachtype") String coachtype);
+
+	@Query(value = "select * from reservation where booking_id=:id", nativeQuery = true)
+	public ReservationForm findByBookingID(@Param("id") int id);
+
+	@Query(value = "select * from reservation where customer_c_id=:id and status=false", nativeQuery = true)
+	public List<ReservationForm> getAllBookingById(@Param("id") long userid);
 
 }

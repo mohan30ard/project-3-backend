@@ -26,6 +26,7 @@ public class ReservationForm {
 	private String coachType;
 	private String pName;
 	private String pAge;
+	private boolean status;
 	private String pGender;
 	private boolean pDisabled;
 	private float price;
@@ -37,6 +38,17 @@ public class ReservationForm {
 	private TrainDetails trainDetails;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Customer customer;
+	
+	
+	public boolean ispDisabled() {
+		return pDisabled;
+	}
+	public void setpDisabled(boolean pDisabled) {
+		this.pDisabled = pDisabled;
+	}
+	
+	
+
 	
 
 //	public ReservationForm() {
